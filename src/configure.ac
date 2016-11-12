@@ -77,8 +77,8 @@ then
 	if ! test $PYLIB
 	then
 		dnl This is a hack to get a valid python library path
-		echo "import sys" > pylib.py
-		echo "for path in sys.path: print(path)" >> pylib.py
+		echo "import sys, os" > pylib.py
+		echo "for path in sys.path: sys.stdout.write(path + os.linesep)"" >> pylib.py
 		PYLIB="$(${PYEXE} pylib.py | grep -e '-packages$' | head -1)"
 		rm -f pylib.py
 	fi
