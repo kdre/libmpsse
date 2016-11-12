@@ -52,7 +52,6 @@ then
   	fi
   	echo $PYEXE
 
-	echo "Hallo"
   	if ! test $PYDEV
   	then
     		for INCL in $(python-config --includes)
